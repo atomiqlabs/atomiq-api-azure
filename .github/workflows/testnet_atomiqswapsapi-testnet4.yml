@@ -46,7 +46,7 @@ jobs:
         uses: Azure/functions-action@v1
         id: fa
         with:
-          app-name: 'atomiqswapsindexer'
+          app-name: 'atomiqswapsapi-testnet4'
           slot-name: 'Production'
           package: functionapp.zip        # <-- CHANGED
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F849243E967A4D92A76E088E98194A06 }}
