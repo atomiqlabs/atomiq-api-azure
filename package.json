@@ -1,0 +1,29 @@
+{
+  "name": "atomiq-api-azure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/functions/*.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "clean": "rimraf dist",
+    "prestart": "npm run clean && npm run build",
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "@atomiqlabs/base": "^13.4.2",
+    "@atomiqlabs/btc-mempool": "^1.0.5",
+    "@atomiqlabs/chain-evm": "github:atomiqlabs/atomiq-chain-evm#develop",
+    "@atomiqlabs/chain-solana": "github:atomiqlabs/atomiq-chain-solana#develop",
+    "@atomiqlabs/chain-starknet": "github:atomiqlabs/atomiq-chain-starknet#develop",
+    "@atomiqlabs/sdk": "github:atomiqlabs/atomiq-sdk#api",
+    "@atomiqlabs/storage-cosmosdb": "github:atomiqlabs/atomiq-storage-cosmosdb",
+    "@azure/cosmos": "^4.9.3",
+    "@azure/functions": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.x",
+    "typescript": "^5.9.3"
+  }
+}
