@@ -20,7 +20,7 @@ const bitcoinNetwork = BITCOIN_NETWORK == null || BITCOIN_NETWORK === "MAINNET"
         : sdk_1.BitcoinNetwork.TESTNET3;
 const chains = [
     chain_starknet_1.StarknetInitializer,
-    chain_solana_1.SolanaInitializer,
+    chain_solana_1.SolanaInitializerV2,
     chain_evm_1.BotanixInitializer,
     chain_evm_1.CitreaInitializer,
     chain_evm_1.AlpenInitializer,
