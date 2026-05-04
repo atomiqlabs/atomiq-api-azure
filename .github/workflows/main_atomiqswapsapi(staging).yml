@@ -32,32 +32,21 @@ jobs:
         shell: pwsh
         run: |
           pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-          npm install
+          npm install --omit=dev
           npm run build --if-present
           npm run test --if-present
           popd
 
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: node-app
-          path: .
+      - name: 'Zip Build Output'
+        shell: pwsh
+        run: |
+          tar -a -c -f functionapp.zip "dist" "node_modules" "src" ".funcignore" "package.json" "tsconfig.json" "package-lock.json" "host.json"
 
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: node-app
-      
       - name: 'Run Azure Functions Action'
         uses: Azure/functions-action@v1
         id: fa
         with:
           app-name: 'atomiqswapsapi'
           slot-name: 'staging'
-          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+          package: functionapp.zip        # <-- CHANGED
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_51919CA7664744EC9DEB8BE46C8A6572 }}
