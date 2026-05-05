@@ -9,7 +9,7 @@ const chain_evm_1 = require("@atomiqlabs/chain-evm");
 const storage_cosmosdb_1 = require("@atomiqlabs/storage-cosmosdb");
 const { LOG_LEVEL, // 0, 1, 2, 3
 BITCOIN_NETWORK, // TESTNET, TESTNET4, MAINNET
-STARKNET_RPC, SOLANA_RPC, BOTANIX_RPC, CITREA_RPC, ALPEN_RPC, GOAT_RPC, COSMOS_CONNECTION_STRING, COSMOS_DATABASE_NAME } = process.env;
+STARKNET_RPC, SOLANA_RPC, BOTANIX_RPC, CITREA_RPC, ALPEN_RPC, GOAT_RPC, COSMOS_CONNECTION_STRING, COSMOS_DATABASE_NAME, LP_API_AUTH_CERTIFICATE, LP_API_AUTH_PRIVATE_KEY } = process.env;
 if (LOG_LEVEL != null) {
     global.atomiqLogLevel = parseInt(LOG_LEVEL);
 }
@@ -54,7 +54,11 @@ exports.swapper = Factory.newSwapper({
     noEvents: true,
     noTimers: true,
     noSwapCache: true,
-    dontCheckPastSwaps: true
+    dontCheckPastSwaps: true,
+    signedKeyBasedAuth: LP_API_AUTH_CERTIFICATE == null || LP_API_AUTH_PRIVATE_KEY == null ? undefined : {
+        certificate: LP_API_AUTH_CERTIFICATE,
+        privateKey: LP_API_AUTH_PRIVATE_KEY
+    }
 });
 exports.api = new api_1.SwapperApi(exports.swapper, { idempotentTxSubmission: true });
 //# sourceMappingURL=SwapperApi.js.map

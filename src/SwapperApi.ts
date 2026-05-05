@@ -15,7 +15,9 @@ const {
     ALPEN_RPC,
     GOAT_RPC,
     COSMOS_CONNECTION_STRING,
-    COSMOS_DATABASE_NAME
+    COSMOS_DATABASE_NAME,
+    LP_API_AUTH_CERTIFICATE,
+    LP_API_AUTH_PRIVATE_KEY
 } = process.env;
 
 if(LOG_LEVEL!=null) {
@@ -67,7 +69,12 @@ export const swapper = Factory.newSwapper({
     noEvents: true,
     noTimers: true,
     noSwapCache: true,
-    dontCheckPastSwaps: true
+    dontCheckPastSwaps: true,
+
+    signedKeyBasedAuth: LP_API_AUTH_CERTIFICATE==null || LP_API_AUTH_PRIVATE_KEY==null ? undefined : {
+        certificate: LP_API_AUTH_CERTIFICATE,
+        privateKey: LP_API_AUTH_PRIVATE_KEY
+    }
 });
 
 export const api = new SwapperApi(swapper, {idempotentTxSubmission: true});
