@@ -12,11 +12,11 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "@atomiqlabs/base": "^13.5.0",
+    "@atomiqlabs/base": "^13.5.2",
     "@atomiqlabs/btc-mempool": "^1.0.5",
-    "@atomiqlabs/chain-evm": "^2.4.1",
-    "@atomiqlabs/chain-solana": "^13.5.7",
-    "@atomiqlabs/chain-starknet": "^8.4.1",
+    "@atomiqlabs/chain-evm": "^2.4.4",
+    "@atomiqlabs/chain-solana": "^13.4.2",
+    "@atomiqlabs/chain-starknet": "^8.4.5",
     "@atomiqlabs/sdk": "github:atomiqlabs/atomiq-sdk#api",
     "@atomiqlabs/storage-cosmosdb": "github:atomiqlabs/atomiq-storage-cosmosdb",
     "@azure/cosmos": "^4.9.3",
