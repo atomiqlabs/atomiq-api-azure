@@ -14,10 +14,10 @@
   "dependencies": {
     "@atomiqlabs/base": "^13.5.2",
     "@atomiqlabs/btc-mempool": "^1.0.5",
-    "@atomiqlabs/chain-evm": "^2.4.4",
-    "@atomiqlabs/chain-solana": "^13.4.2",
+    "@atomiqlabs/chain-evm": "^2.4.5",
+    "@atomiqlabs/chain-solana": "^13.5.13",
     "@atomiqlabs/chain-starknet": "^8.4.5",
-    "@atomiqlabs/sdk": "github:atomiqlabs/atomiq-sdk#api",
+    "@atomiqlabs/sdk": "^8.9.1",
     "@atomiqlabs/storage-cosmosdb": "github:atomiqlabs/atomiq-storage-cosmosdb",
     "@azure/cosmos": "^4.9.3",
     "@azure/functions": "^4.0.0"
