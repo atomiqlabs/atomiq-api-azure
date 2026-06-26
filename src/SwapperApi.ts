@@ -1,7 +1,7 @@
 import {BitcoinNetwork, SwapperFactory} from "@atomiqlabs/sdk";
 import {StarknetInitializer} from "@atomiqlabs/chain-starknet";
 import {SwapperApi} from "@atomiqlabs/sdk/api";
-import {SolanaInitializer} from "@atomiqlabs/chain-solana";
+import {SolanaInitializerV2} from "@atomiqlabs/chain-solana";
 import {AlpenInitializer, BotanixInitializer, CitreaInitializer, GoatInitializer} from "@atomiqlabs/chain-evm";
 import {CosmosDBStorageManager, CosmosDBSwapPatchStorage} from "@atomiqlabs/storage-cosmosdb";
 
@@ -32,7 +32,7 @@ const bitcoinNetwork = BITCOIN_NETWORK==null || BITCOIN_NETWORK === "MAINNET"
 
 const chains = [
     StarknetInitializer,
-    SolanaInitializer,
+    SolanaInitializerV2,
     BotanixInitializer,
     CitreaInitializer,
     AlpenInitializer,
